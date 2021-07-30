@@ -69,7 +69,7 @@
 	<AlienRace.ThingDef_AlienRace ParentName="BasePawn">
 		<defName>Forge_Forgeling_Race</defName>
 		<label>forgeling</label>
-		<description>forgeling.</description>
+		<description>Long ago, a tribe of industrial zealots dabbled in an experimental technology that fused man and machine, giving rise to the Forgelings. A blend of steel and flesh, Forgelings consume chemfuel and wood to fuel a burning furnace within their chests. Pummeling metals into shape with their hammer-like fists, heating it with their burning forges, Forgelings make for excellent smiths.</description>
 		<statBases>
 			<MarketValue>1750</MarketValue>
 			<MoveSpeed>4</MoveSpeed>

@@ -4,7 +4,7 @@
   <ThingDef ParentName="ArmorHelmetMakeableBase">
     <defName>Forge_Apparel_Helmet</defName>
     <label>Furnace helm</label>
-    <description>Placeholder</description>
+    <description>Adorned with smokestacks, this helm makes for a formidable and intimidating armor piece for Forgelings.</description>
     <techLevel>Industrial</techLevel>
     <graphicData>
       <texPath>Things/Apparels/Armor/FurnaceHelm/FurnaceHelm</texPath>

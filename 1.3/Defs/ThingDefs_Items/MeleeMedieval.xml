@@ -4,7 +4,7 @@
   <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
     <defName>Forge_ForgeDagger</defName>
     <label>forge dagger</label>
-    <description>PLACEHOLDER.</description>
+    <description>A blazing heat builds within a micro-forge in this dagger, channeled from the Forgeling itself. The slightest cut can painfully sear flesh.</description>
     <graphicData>
       <texPath>Things/Equipment/MeleeWeapon/ForgeDagger</texPath>
       <graphicClass>Graphic_Single</graphicClass>

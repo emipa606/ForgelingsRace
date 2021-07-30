@@ -27,7 +27,7 @@
   <ThingDef ParentName="Forge_ArmorSmithableBase">
     <defName>Forge_Apparel_CruciblePlate</defName>
     <label>crucible plate</label>
-    <description>.</description>
+    <description>Used mostly to regulate their internal heat, Forgelings created this unique armor to compliment their bizarre physiology.</description>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedMetallicTechArmor</unfinishedThingDef>
       <researchPrerequisite>PlateArmor</researchPrerequisite>

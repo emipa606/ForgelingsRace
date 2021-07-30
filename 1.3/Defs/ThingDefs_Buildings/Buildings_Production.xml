@@ -4,7 +4,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>Forge_ForgelingSpot</defName>
     <label>Forgeling spot</label>
-    <description>Placeholder.</description>
+    <description>Forgelings can forge metals practically anywhere, their fists the hammer, their thighs the anvil. If you need a forge and smelter on the go, bring a Forgeling. Just mind the heat.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
       <texPath>Things/Building/Production/ButcherSpot</texPath>
