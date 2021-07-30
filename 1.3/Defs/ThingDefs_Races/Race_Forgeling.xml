@@ -227,7 +227,7 @@
 				<allowHumanBios>true</allowHumanBios>
 				<alienPartGenerator>
 					<aliencrowntypes>
-						<li>Head#1</li>
+						<li>Head</li>
 					</aliencrowntypes>
 					<alienbodytypes>
 						<li>Male</li>
