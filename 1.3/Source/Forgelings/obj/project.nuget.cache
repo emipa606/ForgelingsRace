@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NB8MzJMp/wl+w5CENOzA46fyKW96RHPYH9aO5RjlBqGu7xIfi6DxZ7ySFI+W8ZOigEmoXwEJxdQUWlpfn8Yagg==",
+  "dgSpecHash": "SoMIlTlLcuaz2IBFoyBFkIiXmFNxhcFEq3cBT9KBi2ci921w/ebppoPhXIO4s06+rg/mssCDpYgYpuOOGpHRUw==",
   "success": true,
   "projectFilePath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3074\\krafs.rimworld.ref.1.3.3074.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.publicizer\\1.0.1\\krafs.publicizer.1.0.1.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3136-beta\\krafs.rimworld.ref.1.3.3136-beta.nupkg.sha512",
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.1.1\\lib.harmony.2.1.1.nupkg.sha512"
   ],
   "logs": []

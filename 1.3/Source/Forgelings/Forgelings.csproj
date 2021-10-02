@@ -49,13 +49,19 @@
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  
+	<ItemGroup>
+		<PackageReference Include="Krafs.Publicizer" Version="1.0.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3136-beta" GeneratePathProperty="true" />
+		<PackageReference Include="Lib.Harmony" Version="2.1.1" ExcludeAssets="runtime" />
+	</ItemGroup>
+	
   <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.3.3074</Version>
-    </PackageReference>
-    <PackageReference Include="Lib.Harmony">
-      <Version>2.1.1</Version>
-    </PackageReference>
+    <Publicize Include="Assembly-CSharp" />
   </ItemGroup>
+  
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

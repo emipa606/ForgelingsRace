@@ -1,5 +1,4 @@
 c:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Forgelings\1.3\Assemblies\Forgelings.dll
 c:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Forgelings\1.3\Source\Forgelings\obj\Debug\Forgelings.csproj.AssemblyReference.cache
 c:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Forgelings\1.3\Source\Forgelings\obj\Debug\Forgelings.csproj.CoreCompileInputs.cache
-c:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Forgelings\1.3\Source\Forgelings\obj\Debug\Forgelings.csproj.CopyComplete
 c:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Forgelings\1.3\Source\Forgelings\obj\Debug\Forgelings.dll

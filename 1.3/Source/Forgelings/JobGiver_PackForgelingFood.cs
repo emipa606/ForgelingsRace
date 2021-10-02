@@ -15,7 +15,7 @@ namespace Forgelings
 	public class JobGiver_PackForgelingFood : ThinkNode_JobGiver
 	{
 		public const FoodPreferability MinFoodPreferability = FoodPreferability.MealAwful;
-		protected override Job TryGiveJob(Pawn pawn)
+		public override Job TryGiveJob(Pawn pawn)
 		{
 			if (pawn.inventory == null)
 			{

@@ -34,11 +34,19 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "Krafs.Publicizer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "Krafs.Rimworld.Ref": {
               "target": "Package",
-              "version": "[1.3.3074, )"
+              "version": "[1.3.3136-beta, )",
+              "generatePathProperty": true
             },
             "Lib.Harmony": {
+              "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "target": "Package",
               "version": "[2.1.1, )"
             }

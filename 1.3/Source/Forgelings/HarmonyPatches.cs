@@ -153,6 +153,7 @@ namespace Forgelings
             }
         }
     }
+
     [HarmonyPatch(typeof(JobGiver_GetFood), "TryGiveJob")]
     public static class TryGiveJob_Patch
     {
@@ -178,7 +179,7 @@ namespace Forgelings
                 Utils.RestoreStats(__state);
             }
             IngestibleNow_Patch.disableManually = false;
-
+    
         }
         public static Job TryGiveJob(Pawn pawn, HungerCategory minCategory, float maxLevelPercentage, bool forceScanWholeMap)
         {
@@ -199,6 +200,182 @@ namespace Forgelings
             return job3;
         }
     }
+
+    [HarmonyPatch(typeof(FoodUtility), "BestFoodSourceOnMap")]
+    public static class BestFoodSourceOnMap_Patch
+    {
+        public static bool Prefix(ref Thing __result, Pawn getter, Pawn eater, bool desperate, out ThingDef foodDef, FoodPreferability maxPref = FoodPreferability.MealLavish, 
+            bool allowPlant = true, bool allowDrug = true, bool allowCorpse = true, bool allowDispenserFull = true, bool allowDispenserEmpty = true,
+            bool allowForbidden = false, bool allowSociallyImproper = false, bool allowHarvest = false, bool forceScanWholeMap = false, bool ignoreReservations = false, 
+            bool calculateWantedStackCount = false, FoodPreferability minPrefOverride = FoodPreferability.Undefined, float? minNutrition = null)
+        {
+            if (eater?.def == FDefOf.Forge_Forgeling_Race)
+            {
+                __result = BestFoodSourceOnMapOverride(getter, eater, desperate, out foodDef, maxPref, allowPlant, allowDrug, 
+                    allowCorpse, allowDispenserFull, allowDispenserEmpty, allowForbidden, allowSociallyImproper, allowHarvest, forceScanWholeMap, ignoreReservations, calculateWantedStackCount, minPrefOverride, minNutrition);
+                return false;
+            }
+            foodDef = null;
+            return true;
+        }
+
+        public static Thing BestFoodSourceOnMapOverride(Pawn getter, Pawn eater, bool desperate, out ThingDef foodDef, FoodPreferability maxPref = FoodPreferability.MealLavish, bool allowPlant = true, bool allowDrug = true, bool allowCorpse = true, bool allowDispenserFull = true, bool allowDispenserEmpty = true, bool allowForbidden = false, bool allowSociallyImproper = false, bool allowHarvest = false, bool forceScanWholeMap = false, bool ignoreReservations = false, bool calculateWantedStackCount = false, FoodPreferability minPrefOverride = FoodPreferability.Undefined, float? minNutrition = null)
+        {
+            foodDef = null;
+            bool getterCanManipulate = getter.RaceProps.ToolUser && getter.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation);
+            if (!getterCanManipulate && getter != eater)
+            {
+                Log.Error(string.Concat(getter, " tried to find food to bring to ", eater, " but ", getter, " is incapable of Manipulation."));
+                return null;
+            }
+            FoodPreferability minPref;
+            if (minPrefOverride == FoodPreferability.Undefined)
+            {
+                if (eater.NonHumanlikeOrWildMan())
+                {
+                    minPref = FoodPreferability.NeverForNutrition;
+                }
+                else if (desperate)
+                {
+                    minPref = FoodPreferability.DesperateOnly;
+                }
+                else
+                {
+                    minPref = (((int)eater.needs.food.CurCategory >= 2) ? FoodPreferability.RawBad : FoodPreferability.MealAwful);
+                }
+            }
+            else
+            {
+                minPref = minPrefOverride;
+            }
+            Predicate<Thing> foodValidator = delegate (Thing t)
+            {
+                Building_NutrientPasteDispenser building_NutrientPasteDispenser = t as Building_NutrientPasteDispenser;
+                if (building_NutrientPasteDispenser != null)
+                {
+                    if (!allowDispenserFull || !getterCanManipulate || (int)ThingDefOf.MealNutrientPaste.ingestible.preferability < (int)minPref 
+                    || (int)ThingDefOf.MealNutrientPaste.ingestible.preferability > (int)maxPref || !eater.WillEat(ThingDefOf.MealNutrientPaste, getter) 
+                    || (t.Faction != getter.Faction && t.Faction != getter.HostFaction) || (!allowForbidden && t.IsForbidden(getter)) || !building_NutrientPasteDispenser.powerComp.PowerOn 
+                    || (!allowDispenserEmpty && !building_NutrientPasteDispenser.HasEnoughFeedstockInHoppers()) || !t.InteractionCell.Standable(t.Map) 
+                    || !FoodUtility.IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) 
+                    || !getter.Map.reachability.CanReachNonLocal(getter.Position, new TargetInfo(t.InteractionCell, t.Map), PathEndMode.OnCell, TraverseParms.For(getter, Danger.Some)))
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    int stackCount = 1;
+                    float statValue = t.GetStatValue(StatDefOf.Nutrition);
+                    if (minNutrition.HasValue)
+                    {
+                        stackCount = StackCountForNutrition(minNutrition.Value, statValue);
+                    }
+                    else if (calculateWantedStackCount)
+                    {
+                        stackCount = WillIngestStackCountOf(eater, t.def, statValue);
+                    }
+                    if ((int)t.def.ingestible.preferability < (int)minPref || (int)t.def.ingestible.preferability > (int)maxPref || !eater.WillEat(t, getter) || !t.def.IsNutritionGivingIngestible || !t.IngestibleNow || (!allowCorpse && t is Corpse) || (!allowDrug && t.def.IsDrug) || (!allowForbidden && t.IsForbidden(getter)) || (!desperate && t.IsNotFresh()) || t.IsDessicated() || !IsFoodSourceOnMapSociallyProper(t, getter, eater, allowSociallyImproper) || (!getter.AnimalAwareOf(t) && !forceScanWholeMap) || (!ignoreReservations && !getter.CanReserve(t, 10, stackCount)))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            };
+            foreach (var def in Utils.foodEdibleForgeling.Keys.ToList().InRandomOrder())
+            {
+                ThingRequest thingRequest = ThingRequest.ForDef(def);
+                Thing bestThing;
+                if (getter.RaceProps.Humanlike)
+                {
+
+                    bestThing = FoodUtility.SpawnedFoodSearchInnerScan(eater, getter.Position, getter.Map.listerThings.ThingsMatching(thingRequest), PathEndMode.ClosestTouch, TraverseParms.For(getter), 9999f, foodValidator);
+                    if (allowHarvest && getterCanManipulate)
+                    {
+                        Thing thing = GenClosest.ClosestThingReachable(searchRegionsMax: (!forceScanWholeMap || bestThing != null) ? 30 : (-1), root: getter.Position, map: getter.Map, thingReq: ThingRequest.ForGroup(ThingRequestGroup.HarvestablePlant), peMode: PathEndMode.Touch, traverseParams: TraverseParms.For(getter), maxDistance: 9999f, validator: delegate (Thing x)
+                        {
+                            Plant plant = (Plant)x;
+                            if (!plant.HarvestableNow)
+                            {
+                                return false;
+                            }
+                            ThingDef harvestedThingDef = plant.def.plant.harvestedThingDef;
+                            if (!harvestedThingDef.IsNutritionGivingIngestible)
+                            {
+                                return false;
+                            }
+                            if (!eater.WillEat(harvestedThingDef, getter))
+                            {
+                                return false;
+                            }
+                            if (!getter.CanReserve(plant))
+                            {
+                                return false;
+                            }
+                            if (!allowForbidden && plant.IsForbidden(getter))
+                            {
+                                return false;
+                            }
+                            return (bestThing == null || (int)GetFinalIngestibleDef(bestThing).ingestible.preferability < (int)harvestedThingDef.ingestible.preferability) ? true : false;
+                        });
+                        if (thing != null)
+                        {
+                            bestThing = thing;
+                            foodDef = GetFinalIngestibleDef(thing, harvest: true);
+                        }
+                    }
+                    if (foodDef == null && bestThing != null)
+                    {
+                        foodDef = GetFinalIngestibleDef(bestThing);
+                    }
+                }
+                else
+                {
+                    int maxRegionsToScan = GetMaxRegionsToScan(getter, forceScanWholeMap);
+                    FoodUtility.filtered.Clear();
+                    foreach (Thing item in GenRadial.RadialDistinctThingsAround(getter.Position, getter.Map, 2f, useCenter: true))
+                    {
+                        Pawn pawn = item as Pawn;
+                        if (pawn != null && pawn != getter && pawn.RaceProps.Animal && pawn.CurJob != null && pawn.CurJob.def == JobDefOf.Ingest && pawn.CurJob.GetTarget(TargetIndex.A).HasThing)
+                        {
+                            filtered.Add(pawn.CurJob.GetTarget(TargetIndex.A).Thing);
+                        }
+                    }
+                    bool ignoreEntirelyForbiddenRegions = !allowForbidden && ForbidUtility.CaresAboutForbidden(getter, cellTarget: true) && getter.playerSettings != null && getter.playerSettings.EffectiveAreaRestrictionInPawnCurrentMap != null;
+                    Predicate<Thing> validator = delegate (Thing t)
+                    {
+                        if (!foodValidator(t))
+                        {
+                            return false;
+                        }
+                        if (filtered.Contains(t))
+                        {
+                            return false;
+                        }
+                        if (!(t is Building_NutrientPasteDispenser) && (int)t.def.ingestible.preferability <= 2)
+                        {
+                            return false;
+                        }
+                        return (!t.IsNotFresh()) ? true : false;
+                    };
+                    bestThing = GenClosest.ClosestThingReachable(getter.Position, getter.Map, thingRequest, PathEndMode.ClosestTouch, TraverseParms.For(getter), 9999f, validator, null, 0, maxRegionsToScan, forceAllowGlobalSearch: false, RegionType.Set_Passable, ignoreEntirelyForbiddenRegions);
+                    filtered.Clear();
+                    if (bestThing == null)
+                    {
+                        desperate = true;
+                        bestThing = GenClosest.ClosestThingReachable(getter.Position, getter.Map, thingRequest, PathEndMode.ClosestTouch, TraverseParms.For(getter), 9999f, foodValidator, null, 0, maxRegionsToScan, forceAllowGlobalSearch: false, RegionType.Set_Passable, ignoreEntirelyForbiddenRegions);
+                    }
+                    if (bestThing != null)
+                    {
+                        foodDef = GetFinalIngestibleDef(bestThing);
+                    }
+                }
+                return bestThing;
+            }
+            return null;
+        }
+    }
+
 
     [HarmonyPatch(typeof(FoodUtility), "FoodOptimality")]
     public static class FoodOptimality_Patch
@@ -252,7 +429,7 @@ namespace Forgelings
                 __state = null;
             }
         }
-
+    
         public static void Postfix(Dictionary<ThingDef, OverridenValues> __state)
         {
             if (__state != null)
@@ -277,7 +454,7 @@ namespace Forgelings
                 __state = null;
             }
         }
-
+    
         public static void Postfix(Dictionary<ThingDef, OverridenValues> __state)
         {
             if (__state != null)
@@ -350,10 +527,10 @@ namespace Forgelings
                     }
                     return flag ? true : false;
                 };
-
+    
                 thing = GenClosest.ClosestThingReachable(actor.Position, actor.Map, ThingRequest.ForGroup(ThingRequestGroup.BuildingArtificial), PathEndMode.OnCell,
                     TraverseParms.For(actor), 32f, (Thing t) => baseChairValidator(t) && t.Position.GetDangerFor(pawn, t.Map) == Danger.None);
-
+    
                 if (thing == null)
                 {
                     cell2 = RCellFinder.SpotToChewStandingNear(actor, actor.CurJob.GetTarget(ingestibleInd).Thing, (IntVec3 c) => actor.CanReserveSittableOrSpot(c));
@@ -389,7 +566,7 @@ namespace Forgelings
             return toil;
         }
     }
-
+    
     [HarmonyPatch(typeof(Toils_Ingest), "ChewIngestible")]
     public static class ChewIngestible_Patch
     {
@@ -455,7 +632,7 @@ namespace Forgelings
             return true;
         }
     }
-
+    
     [HarmonyPatch(typeof(Toils_Ingest), "AddIngestionEffects")]
     public static class AddIngestionEffects_Patch
     {
@@ -509,6 +686,7 @@ namespace Forgelings
             if (eater?.def == FDefOf.Forge_Forgeling_Race)
             {
                 __state = Utils.AlterStats();
+
             }
             else
             {
@@ -546,7 +724,7 @@ namespace Forgelings
             }
         }
     }
-
+    
     [HarmonyPatch(typeof(FoodUtility), "ThoughtsFromIngesting")]
     public static class ThoughtsFromIngesting_Patch
     {
@@ -580,23 +758,6 @@ namespace Forgelings
             {
                 __result = true;
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
-    public static class Includes_Patch
-    {
-        public static bool Prefix(ThingRequestGroup group, ThingDef def, ref bool __result)
-        {
-            if (group == ThingRequestGroup.FoodSource || group == ThingRequestGroup.FoodSourceNotPlantOrTree)
-            {
-                if (Utils.foodEdibleForgeling.ContainsKey(def))
-                {
-                    __result = true;
-                    return false;
-                }
-            }
-            return true;
         }
     }
 
