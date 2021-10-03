@@ -34,7 +34,7 @@ namespace Forgelings
 				{
 					return false;
 				}
-				if (invNutrition + Utils.foodEdibleForgeling[t.def] * (float)t.stackCount < 0.8f)
+				if (invNutrition + Utils.FoodEdibleForgeling[t.def] * (float)t.stackCount < 0.8f)
 				{
 					return false;
 				}
@@ -45,7 +45,7 @@ namespace Forgelings
 			{
 				return null;
 			}
-			int a = Mathf.FloorToInt((pawn.needs.food.MaxLevel - invNutrition) / Utils.foodEdibleForgeling[thing.def]);
+			int a = Mathf.FloorToInt((pawn.needs.food.MaxLevel - invNutrition) / Utils.FoodEdibleForgeling[thing.def]);
 			a = Mathf.Min(a, thing.stackCount);
 			a = Mathf.Max(a, 1);
 			Job job = JobMaker.MakeJob(JobDefOf.TakeInventory, thing);
@@ -61,7 +61,7 @@ namespace Forgelings
 			{
 				if (IsGoodPackableFoodFor(innerContainer[i], pawn))
 				{
-					num += Utils.foodEdibleForgeling[innerContainer[i].def] * (float)innerContainer[i].stackCount;
+					num += Utils.FoodEdibleForgeling[innerContainer[i].def] * (float)innerContainer[i].stackCount;
 				}
 			}
 			return num;
@@ -69,7 +69,7 @@ namespace Forgelings
 
 		private bool IsGoodPackableFoodFor(Thing food, Pawn forPawn)
 		{
-			if (Utils.foodEdibleForgeling.ContainsKey(food.def))
+			if (Utils.FoodEdibleForgeling.ContainsKey(food.def))
             {
 				return true;
             }

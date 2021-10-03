@@ -31,7 +31,7 @@ namespace Forgelings
     [StaticConstructorOnStartup]
     public static class Utils
     {
-        public static Dictionary<ThingDef, float> foodEdibleForgeling = new Dictionary<ThingDef, float>
+        public static Dictionary<ThingDef, float> FoodEdibleForgeling => new Dictionary<ThingDef, float>
         {
             {ThingDefOf.WoodLog, 0.1f},
             {ThingDefOf.Chemfuel, 0.25f}
@@ -62,7 +62,7 @@ namespace Forgelings
         public static Dictionary<ThingDef, OverridenValues> AlterStats()
         {
             var dict = new Dictionary<ThingDef, OverridenValues>();
-            foreach (var data in foodEdibleForgeling)
+            foreach (var data in FoodEdibleForgeling)
             {
                 var def = data.Key;
                 dict[def] = new OverridenValues();
@@ -198,7 +198,7 @@ namespace Forgelings
                 return null;
             }
 
-            float nutrition = Utils.foodEdibleForgeling[foodSource.def];
+            float nutrition = Utils.FoodEdibleForgeling[foodSource.def];
             Job job3 = JobMaker.MakeJob(JobDefOf.Ingest, foodSource);
             job3.count = FoodUtility.WillIngestStackCountOf(pawn, foodDef, nutrition);
             return job3;
@@ -286,7 +286,7 @@ namespace Forgelings
                 }
                 return true;
             };
-            foreach (var def in Utils.foodEdibleForgeling.Keys.ToList().InRandomOrder())
+            foreach (var def in Utils.FoodEdibleForgeling.Keys.ToList().InRandomOrder())
             {
                 ThingRequest thingRequest = ThingRequest.ForDef(def);
                 Thing bestThing;
@@ -388,7 +388,7 @@ namespace Forgelings
         {
             if (eater?.def == FDefOf.Forge_Forgeling_Race)
             {
-                if (!Utils.foodEdibleForgeling.ContainsKey(foodSource.def))
+                if (!Utils.FoodEdibleForgeling.ContainsKey(foodSource.def))
                 {
                     __result = -9999999f;
                     __state = null;
@@ -758,7 +758,7 @@ namespace Forgelings
         public static bool disableManually;
         public static void Postfix(Thing __instance, ref bool __result)
         {
-            if (!disableManually && Utils.foodEdibleForgeling.ContainsKey(__instance.def))
+            if (!disableManually && Utils.FoodEdibleForgeling.ContainsKey(__instance.def))
             {
                 __result = true;
             }
@@ -783,17 +783,17 @@ namespace Forgelings
     {
         private static void Postfix(ref bool __result, Pawn p, Thing food, Pawn getter = null, bool careIfNotAcceptableForTitle = true)
         {
-            if (food != null) 
+            if (food?.def != null && p != null) 
             {
-                if (Utils.foodEdibleForgeling.ContainsKey(food.def) && p.def != FDefOf.Forge_Forgeling_Race)
+                if (Utils.FoodEdibleForgeling.ContainsKey(food.def) && p.def != FDefOf.Forge_Forgeling_Race)
                 {
                     __result = false;
                 }
-                else if (p.def == FDefOf.Forge_Forgeling_Race && !Utils.foodEdibleForgeling.ContainsKey(food.def))
+                else if (p.def == FDefOf.Forge_Forgeling_Race && !Utils.FoodEdibleForgeling.ContainsKey(food.def))
                 {
                     __result = false;
                 }
-                else if (p.def == FDefOf.Forge_Forgeling_Race && Utils.foodEdibleForgeling.ContainsKey(food.def))
+                else if (p.def == FDefOf.Forge_Forgeling_Race && Utils.FoodEdibleForgeling.ContainsKey(food.def))
                 {
                     __result = true;
                 }
@@ -806,15 +806,15 @@ namespace Forgelings
     {
         private static void Postfix(ref bool __result, Pawn p, ThingDef food, Pawn getter = null, bool careIfNotAcceptableForTitle = true)
         {
-            if (Utils.foodEdibleForgeling.ContainsKey(food) && p.def != FDefOf.Forge_Forgeling_Race)
+            if (Utils.FoodEdibleForgeling.ContainsKey(food) && p.def != FDefOf.Forge_Forgeling_Race)
             {
                 __result = false;
             }
-            else if (p.def == FDefOf.Forge_Forgeling_Race && !Utils.foodEdibleForgeling.ContainsKey(food))
+            else if (p.def == FDefOf.Forge_Forgeling_Race && !Utils.FoodEdibleForgeling.ContainsKey(food))
             {
                 __result = false;
             }
-            else if (p.def == FDefOf.Forge_Forgeling_Race && Utils.foodEdibleForgeling.ContainsKey(food))
+            else if (p.def == FDefOf.Forge_Forgeling_Race && Utils.FoodEdibleForgeling.ContainsKey(food))
             {
                 __result = true;
             }
