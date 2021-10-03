@@ -223,54 +223,5 @@
 		</techHediffsTags>
 	</PawnKindDef>
 
-	<!-- Refugee -->
-
-	<PawnKindDef Name="Forge_ForgelingsRefugeeBase" Abstract="True">
-		<race>Forge_Forgeling_Race</race>
-		<defaultFactionType>OutlanderRefugee</defaultFactionType>
-		<chemicalAddictionChance>0.12</chemicalAddictionChance>
-		<backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
-		<invNutrition>2.55</invNutrition>
-		<biocodeWeaponChance>0.1</biocodeWeaponChance>
-	</PawnKindDef>
-
-
-	<PawnKindDef ParentName="Forge_ForgelingsRefugeeBase">
-		<defName>Forge_Forgeling_Refugee</defName>
-		<label>Forgeling refugee</label>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<combatPower>35</combatPower>
-		<invNutrition>0</invNutrition>
-		<gearHealthRange>0.2~0.6</gearHealthRange>
-		<itemQuality>Poor</itemQuality>
-		<apparelMoney>90~280</apparelMoney>
-		<apparelAllowHeadgearChance>0.2</apparelAllowHeadgearChance>
-		<apparelTags>
-			<li>IndustrialBasic</li>
-		</apparelTags>
-		<weaponMoney>60~200</weaponMoney>
-		<weaponTags>
-			<li>NeolithicMeleeBasic</li>
-		</weaponTags>
-		<techHediffsMoney>50~50</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-		</techHediffsTags>
-		<techHediffsChance>0.15</techHediffsChance>
-		<inventoryOptions>
-			<skipChance>0.9</skipChance>
-			<subOptionsChooseOne>
-				<li>
-					<thingDef>Silver</thingDef>
-					<countRange>30~70</countRange>
-				</li>
-				<li>
-					<thingDef>MedicineIndustrial</thingDef>
-					<countRange>1</countRange>
-				</li>
-			</subOptionsChooseOne>
-		</inventoryOptions>
-	</PawnKindDef>
 
 </Defs>

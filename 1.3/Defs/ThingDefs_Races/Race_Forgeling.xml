@@ -15,7 +15,6 @@
 				<li>
 					<kindDefs>
 						<li>Forge_Forgeling_SpaceRefugee</li>
-						<li>Forge_Forgeling_Refugee</li>
 					</kindDefs>
 					<chance>15.0</chance>
 				</li>

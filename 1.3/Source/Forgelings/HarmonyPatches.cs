@@ -50,6 +50,10 @@ namespace Forgelings
             {
                 if (recipe.AllRecipeUsers.Contains(FDefOf.FueledSmithy))
                 {
+                    if (recipe.recipeUsers is null)
+                    {
+                        recipe.recipeUsers = new List<ThingDef>();
+                    }
                     recipe.recipeUsers.Add(FDefOf.Forge_ForgelingSpot);
                 }
             }
