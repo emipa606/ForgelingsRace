@@ -45,23 +45,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddHumanlikeOrders_Patch.cs" />
+    <Compile Include="AddIngestionEffects_Patch.cs" />
+    <Compile Include="BestFoodSourceOnMap_Patch.cs" />
+    <Compile Include="CarryIngestibleToChewSpot_Patch.cs" />
+    <Compile Include="ChewIngestible_Patch.cs" />
+    <Compile Include="DropBloodFilth_Patch.cs" />
+    <Compile Include="FDefOf.cs" />
+    <Compile Include="FoodOptimality_Patch.cs" />
+    <Compile Include="GenerateSkills_Patch.cs" />
+    <Compile Include="Ingested_Patch.cs" />
+    <Compile Include="IngestibleNow_Patch.cs" />
     <Compile Include="JobGiver_PackForgelingFood.cs" />
-    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="TrySatisfyPawnNeeds_Patch.cs" />
+    <Compile Include="ModifyCarriedThingDrawPosWorker_Patch.cs" />
+    <Compile Include="OverridenValues.cs" />
+    <Compile Include="Patch_Applies.cs" />
+    <Compile Include="Patch_IsForbidden.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaceRestrictionSettings_Patch.cs" />
+    <Compile Include="ResolveAllGraphicsPrefix_Patch.cs" />
+    <Compile Include="StatPart_WorkTableTemperature_Patch_Applies.cs" />
+    <Compile Include="ThoughtsFromIngesting_Patch.cs" />
+    <Compile Include="ThoughtWorker_Precept_ShouldHaveThought_Patch.cs" />
+    <Compile Include="TryFindBestFoodSourceFor_Patch.cs" />
+    <Compile Include="TryGainMemory_Patch.cs" />
+    <Compile Include="TryGiveJob_Patch.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="WillEat_Patch1.cs" />
+    <Compile Include="WillEat_Patch2.cs" />
+    <Compile Include="WillIngestStackCountOf_Patch.cs" />
   </ItemGroup>
-  
-	<ItemGroup>
-		<PackageReference Include="Krafs.Publicizer" Version="1.0.1">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3136-beta" GeneratePathProperty="true" />
-		<PackageReference Include="Lib.Harmony" Version="2.1.1" ExcludeAssets="runtime" />
-	</ItemGroup>
-	
+  <ItemGroup>
+    <PackageReference Include="Krafs.Publicizer" Version="1.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3200" GeneratePathProperty="true" />
+    <PackageReference Include="Lib.Harmony" Version="2.2.0" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Publicize Include="Assembly-CSharp" />
   </ItemGroup>
-  
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

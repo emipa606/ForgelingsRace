@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj": {}
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj": {}
   },
   "projects": {
-    "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj": {
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
+        "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
         "projectName": "Forgelings",
-        "projectPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
+        "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
         "packagesPath": "C:\\Users\\Vova\\.nuget\\packages\\",
-        "outputPath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\obj\\",
+        "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -42,13 +42,13 @@
             },
             "Krafs.Rimworld.Ref": {
               "target": "Package",
-              "version": "[1.3.3136-beta, )",
+              "version": "[1.3.3200, )",
               "generatePathProperty": true
             },
             "Lib.Harmony": {
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[2.1.1, )"
+              "version": "[2.2.0, )"
             }
           }
         }

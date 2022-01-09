@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SoMIlTlLcuaz2IBFoyBFkIiXmFNxhcFEq3cBT9KBi2ci921w/ebppoPhXIO4s06+rg/mssCDpYgYpuOOGpHRUw==",
+  "dgSpecHash": "0JdbX90gz4Pc/W4gJMwFBFJS3XcoUkr6Pu7s+neEofhyaZDj0Ws4vEX8ud8yULqlzl4sKmSQ8WXhTWkjjbWzUA==",
   "success": true,
-  "projectFilePath": "c:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
+  "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Forgelings\\1.3\\Source\\Forgelings\\Forgelings.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vova\\.nuget\\packages\\krafs.publicizer\\1.0.1\\krafs.publicizer.1.0.1.nupkg.sha512",
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3136-beta\\krafs.rimworld.ref.1.3.3136-beta.nupkg.sha512",
-    "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.1.1\\lib.harmony.2.1.1.nupkg.sha512"
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.3.3200\\krafs.rimworld.ref.1.3.3200.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.2.0\\lib.harmony.2.2.0.nupkg.sha512"
   ],
   "logs": []
 }
