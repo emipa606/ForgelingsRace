@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef Name="Forge_ArmorSmithableBase" ParentName="ApparelBase" Abstract="True">
     <smeltable>true</smeltable>
@@ -23,7 +23,6 @@
       </defaultIngredientFilter>
     </recipeMaker>
   </ThingDef>
-
   <ThingDef ParentName="Forge_ArmorSmithableBase">
     <defName>Forge_Apparel_CruciblePlate</defName>
     <label>crucible plate</label>
@@ -43,9 +42,9 @@
       <li>Metallic</li>
     </stuffCategories>
     <costStuffCount>80</costStuffCount>
-	<costList>
-		<ComponentIndustrial>2</ComponentIndustrial>
-	</costList>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
     <statBases>
       <WorkToMake>38000</WorkToMake>
       <MaxHitPoints>290</MaxHitPoints>
@@ -103,5 +102,4 @@
       </options>
     </colorGenerator>
   </ThingDef>
-
 </Defs>

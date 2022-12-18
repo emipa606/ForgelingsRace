@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <ThingDef ParentName="ArmorHelmetMakeableBase">
     <defName>Forge_Apparel_Helmet</defName>
     <label>Furnace helm</label>
@@ -14,9 +13,9 @@
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
-	<costList>
-		<ComponentIndustrial>1</ComponentIndustrial>
-	</costList>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
     <costStuffCount>40</costStuffCount>
     <statBases>
       <WorkToMake>3200</WorkToMake>
@@ -48,5 +47,4 @@
       </defaultOutfitTags>
     </apparel>
   </ThingDef>
-
 </Defs>

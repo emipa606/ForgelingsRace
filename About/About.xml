@@ -1,50 +1,103 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Forgelings race</name>
-	<author>Ogam, Taranchuck, Venomancer777</author>
-	<packageId>Venomancer777.Forgelings</packageId>
-	<supportedVersions>
-		<li>1.3</li>
-	</supportedVersions>
-<description>
-	Forgelings
+  <name>Forgelings race (Continued)</name>
+  <packageId>Mlie.ForgelingsRace</packageId>
+  <author>Ogam, Taranchuck, Venomancer777</author>
+  <url>https://github.com/emipa606/ForgelingsRace</url>
+  <supportedVersions>
+    <li>1.3</li>
+    <li>1.4</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>erdelf.HumanoidAlienRaces</packageId>
+      <displayName>Humanoid Alien Races</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/839005762</steamWorkshopUrl>
+      <downloadUrl>https://github.com/erdelf/AlienRaces/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>erdelf.HumanoidAlienRaces</li>
+  </loadAfter>
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
+Update of Ogam, Taranchuck, Venomancer777s mod
+https://steamcommunity.com/sharedfiles/filedetails/?id=2615824324
 
-	Long ago, a tribe of industrial zealots dabbled in an experimental technology that fused man and machine, giving rise to the Forgelings. A blend of steel and flesh, Forgelings consume chemfuel and wood to fuel a burning furnace within their chests. Pummeling metals into shape with their hammer-like fists, heating it with their burning forges, Forgelings make for excellent smiths.
+[img]https://i.imgur.com/pufA0kM.png[/img]
 
-	Race Features
-	Forgelings live to smith metals, and can do so on their own unique spots. Their stomachs a literal furnace, they burn wood and other fuels to power themselves, just watch out! They literally bleed fire. With fists of steel, they can pummel enemies to much in a pinch. They also tend to be more crafty or artistic by default.
+[table]
+    [tr]
+        [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/ForgelingsRace][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+    [tr]
+        [td][img]https://i.imgur.com/WjDSfUn.png[/img][/td]
+        [td][img]https://i.imgur.com/Be8E2qJ.png[/img][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
+[img]https://i.imgur.com/tE28cZ7.gif[/img]
+[img]https://i.imgur.com/kkaSETo.png[/img]
 
-	Plate
-	Used mostly to regulate their internal heat, Forgelings created this unique armor to compliment their bizarre physiology.
+[h1]Forgelings[/h1]
+[b]"Long ago, a tribe of industrial zealots dabbled in an experimental technology that fused man and machine, giving rise to the Forgelings. A blend of steel and flesh, Forgelings consume chemfuel and wood to fuel a burning furnace within their chests. Pummeling metals into shape with their hammer-like fists, heating it with their burning forges, Forgelings make for excellent smiths."[/b]
 
-	Helm
-	Adorned with smokestacks, this helm makes for a formidable and intimidating armor piece for Forgelings
+[h1]Race Features[/h1]
 
-	Dagger
-	A blazing heat builds within a micro-forge in this dagger, channeled from the Forgeling itself. The slightest cut can painfully sear flesh.
+Forgelings live to smith metals, and can do so on their own unique spots. Their stomachs a literal furnace, they burn wood and other fuels to power themselves, just watch out! They literally bleed fire. With fists of steel, they can pummel enemies to much in a pinch. They also tend to be more crafty or artistic by default.
+[list]
+ [*]40% base sharp, blunt, and heat armor
+ [*]Don't mind extreme heat (Max temp 3000) but still get hypothermia like normal.
+ [*]Longer life expectancy (120 vs 80)
+ [*]Longer gestation (45 days vs 30)
+ [*]Can eat wood, and consider it to be a lavish meal
+ [*]Punch about as hard as a regular mace (16.2 vs 15.7) without any quality or material modifiers.
+ [*]Drop less leather, presumably due to the gigantic gaping hole in their chests (50 vs 75)
+ [*]Forge daggers are a gladius with much higher damage (16 cut + 10 flame vs 16 cut).
+ [*]Crucible armor is cooler looking but more expensive plate armor (80 metal + 2 components vs 170 metal). Statwise, it's identical.
+ [*]Helmet is cooler looking but more expensive than a simple helmet (40 metal + 1 component vs 40 metal) for identical stats.
+[/list]
 
-	Forgeling Spot
-	Forgelings can forge metals practically anywhere, their fists the hammer, their thighs the anvil. If you need a forge and smelter on the go, bring a Forgeling. Just mind the heat.
+[b]Plate[/b]
+Used mostly to regulate their internal heat, Forgelings created this unique armor to compliment their bizarre physiology.
+[b]Helmet[/b]
+Adorned with smokestacks, this helm makes for a formidable and intimidating armor piece for Forgelings
+[b]Dagger[/b]
+A blazing heat builds within a micro-forge in this dagger, channeled from the Forgeling itself. The slightest cut can painfully sear flesh.
+[b]Forgeling Spot[/b]
+Forgelings can forge metals practically anywhere, their fists the hammer, their thighs the anvil. If you need a forge and smelter on the go, bring a Forgeling. Just mind the heat.
 
-	Credits
-	Commissioned by Venomancer777
-	Code: C# - Taranchuk
-	Art: Ogam 
-</description>
-	<modDependencies>
-        <li>
-			<packageId>brrainz.harmony</packageId>
-			<displayName>Harmony</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077</steamWorkshopUrl>
-		</li>
-		<li>
-			<packageId>erdelf.HumanoidAlienRaces</packageId>
-			<displayName>Humanoid Alien Race Framework</displayName>
-			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
-		</li>
-	</modDependencies>
-		<loadAfter>
-		<li>brrainz.harmony</li>
-		<li>erdelf.HumanoidAlienRaces</li>
-		</loadAfter>
+
+[img]https://i.imgur.com/B5Zgrb1.png[/img]
+[h1]Compatibility[/h1]
+Combat Extended COMPATIBLE
+
+Highly recommend not to use Ideology which changes diet such as being a cannibal, they refuse to eat that food unless forced. 
+
+[img]https://i.imgur.com/6oqPvaw.png[/img]
+[h1]Credits[/h1]
+[b]Commissioned[/b] by Venomancer777
+[b]Code:[/b] C# - Taranchuk
+[b]Art:[/b] Ogam 
+
+[url=https://discord.gg/fGejcxbSY5][img]https://i.imgur.com/ABiEe4Z.png[/img][/url]
+[url=https://discord.gg/7befJWr9xS][img]https://i.imgur.com/cfoFEMA.png[/img][/url]
+	
+[img]https://i.imgur.com/PwoNOj4.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]</description>
 </ModMetaData>

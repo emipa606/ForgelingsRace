@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>Forgeling_Female</defName>
+    <graphicPath>Forgeling/Head/Female_Head</graphicPath>
+    <gender>Female</gender>
+  </HeadTypeDef>
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>Forgeling_Male</defName>
+    <graphicPath>Forgeling/Head/Male_Head</graphicPath>
+    <gender>Male</gender>
+  </HeadTypeDef>
+</Defs>

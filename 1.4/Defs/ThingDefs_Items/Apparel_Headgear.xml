@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="ArmorHelmetMakeableBase">
+    <defName>Forge_Apparel_Helmet</defName>
+    <label>Furnace helm</label>
+    <description>Adorned with smokestacks, this helm makes for a formidable and intimidating armor piece for Forgelings.</description>
+    <techLevel>Industrial</techLevel>
+    <graphicData>
+      <texPath>Things/Apparels/Armor/FurnaceHelm/FurnaceHelm</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <costStuffCount>40</costStuffCount>
+    <statBases>
+      <WorkToMake>3200</WorkToMake>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2</Mass>
+      <StuffEffectMultiplierArmor>0.5</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.15</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0</StuffEffectMultiplierInsulation_Heat>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+    <recipeMaker>
+      <recipeUsers>
+        <li>Forge_ForgelingSpot</li>
+      </recipeUsers>
+    </recipeMaker>
+    <apparel>
+      <bodyPartGroups>
+        <li>UpperHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Apparels/Armor/FurnaceHelm/FurnaceHelm</wornGraphicPath>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <tags>
+        <li>IndustrialMilitaryBasic</li>
+      </tags>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+    </apparel>
+  </ThingDef>
+</Defs>

@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
   <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
     <defName>Forge_ForgeDagger</defName>
     <label>forge dagger</label>
@@ -11,15 +10,15 @@
     </graphicData>
     <uiIconScale>1.2</uiIconScale>
     <techLevel>Medieval</techLevel>
-	<recipeMaker>
+    <recipeMaker>
       <researchPrerequisite>Smithing</researchPrerequisite>
       <skillRequirements>
         <Crafting>3</Crafting>
       </skillRequirements>
-		<recipeUsers Inherit="False">
-			<li>Forge_ForgelingSpot</li>
-		</recipeUsers>
-	</recipeMaker>
+      <recipeUsers Inherit="False">
+        <li>Forge_ForgelingSpot</li>
+      </recipeUsers>
+    </recipeMaker>
     <weaponTags>
       <li>MedievalMeleeDecent</li>
     </weaponTags>
@@ -29,9 +28,9 @@
     </statBases>
     <relicChance>2</relicChance>
     <equippedAngleOffset>-65</equippedAngleOffset>
-	<costList>
-		<WoodLog>10</WoodLog>
-	</costList>
+    <costList>
+      <WoodLog>10</WoodLog>
+    </costList>
     <costStuffCount>60</costStuffCount>
     <stuffCategories>
       <li>Metallic</li>
@@ -75,6 +74,4 @@
       </li>
     </tools>
   </ThingDef>
-
-  
 </Defs>

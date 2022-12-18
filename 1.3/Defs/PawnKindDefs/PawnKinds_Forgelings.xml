@@ -1,227 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	<!-- PawnKinds for Player Colonies and Tribes -->
-
-	<PawnKindDef Abstract="True" Name="Forge_ForgelingsPlayerBase">
-		<race>Forge_Forgeling_Race</race>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<combatPower>30</combatPower>
-		<isFighter>false</isFighter>
-		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-		<forceNormalGearQuality>true</forceNormalGearQuality>
-	</PawnKindDef>
-
-	<!-- Space Refugee for refugee events -->
-
-	<PawnKindDef>
-		<race>Forge_Forgeling_Race</race>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<combatPower>30</combatPower>
-		<defName>Forge_Forgeling_SpaceRefugee</defName>
-		<label>Forgeling space refugee</label>
-		<baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-		<backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
-		<forceNormalGearQuality>true</forceNormalGearQuality>
-		<isFighter>false</isFighter>
-		<chemicalAddictionChance>0.08</chemicalAddictionChance>
-		<gearHealthRange>
-			<min>0.4</min>
-			<max>1.4</max>
-		</gearHealthRange>
-		<apparelMoney>
-			<min>0</min>
-			<max>1000</max>
-		</apparelMoney>
-		<apparelTags>
-			<li>IndustrialBasic</li>
-		</apparelTags>
-		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-		<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-		<techHediffsMoney>
-			<min>50</min>
-			<max>800</max>
-		</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-			<li>Simple</li>
-		</techHediffsTags>
-		<techHediffsChance>0.08</techHediffsChance>
-	</PawnKindDef>
-
-	<!-- Slave -->
-
-	<PawnKindDef>
-		<defName>Forge_Forgeling_Slave</defName>
-		<label>Forgeling slave</label>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<combatPower>30</combatPower>
-		<race>Forge_Forgeling_Race</race>
-		<baseRecruitDifficulty>0.30</baseRecruitDifficulty>
-		<backstoryFiltersOverride>
-			<li>
-				<categories>
-					<li>Outlander</li>
-				</categories>
-			</li>
-		</backstoryFiltersOverride>
-		<defaultFactionType>OutlanderCivil</defaultFactionType>
-		<itemQuality>Poor</itemQuality>
-		<backstoryCryptosleepCommonality>0.10</backstoryCryptosleepCommonality>
-		<isFighter>false</isFighter>
-		<chemicalAddictionChance>0.05</chemicalAddictionChance>
-		<gearHealthRange>
-			<min>0.2</min>
-			<max>0.8</max>
-		</gearHealthRange>
-		<apparelTags>
-			<li>IndustrialBasic</li>
-		</apparelTags>
-		<apparelMoney>
-			<min>0</min>
-			<max>350</max>
-		</apparelMoney>
-		<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-		<techHediffsChance>0.03</techHediffsChance>
-		<techHediffsMoney>
-			<min>50</min>
-			<max>800</max>
-		</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-		</techHediffsTags>
-		<apparelIgnoreSeasons>true</apparelIgnoreSeasons>
-		<invNutrition>1</invNutrition>
-		<invFoodDef>Pemmican</invFoodDef>
-	</PawnKindDef>
-
-	<!-- Colonist -->
-
-	<PawnKindDef ParentName="Forge_ForgelingsPlayerBase">
-		<defName>Forge_Forgeling_Colonist</defName>
-		<label>Forgeling</label>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<defaultFactionType>PlayerColony</defaultFactionType>
-		<chemicalAddictionChance>0.06</chemicalAddictionChance>
-		<apparelTags>
-			<li>IndustrialBasic</li>
-		</apparelTags>
-		<apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
-		<apparelMoney>
-			<min>350</min>
-			<max>600</max>
-		</apparelMoney>
-		<backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
-		<techHediffsChance>0.03</techHediffsChance>
-		<techHediffsMoney>
-			<min>50</min>
-			<max>800</max>
-		</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-			<li>Simple</li>
-		</techHediffsTags>
-	</PawnKindDef>
-
-	<PawnKindDef ParentName="Forge_ForgelingsPlayerBase">
-		<defName>Forge_Forgeling_Tribesperson</defName>
-		<label>Forgeling</label>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<defaultFactionType>PlayerTribe</defaultFactionType>
-		<chemicalAddictionChance>0.05</chemicalAddictionChance>
-		<apparelTags>
-			<li>Neolithic</li>
-		</apparelTags>
-		<apparelMoney>
-			<min>200</min>
-			<max>200</max>
-		</apparelMoney>
-		<backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
-		<techHediffsMoney>
-			<min>50</min>
-			<max>50</max>
-		</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-		</techHediffsTags>
-		<techHediffsChance>0.02</techHediffsChance>
-	</PawnKindDef>
-
-	<!-- Outlander -->
-
-	<PawnKindDef Name="Forge_ForgelingsOutlanderBase" Abstract="True">
-		<race>Forge_Forgeling_Race</race>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<defaultFactionType>OutlanderCivil</defaultFactionType>
-		<chemicalAddictionChance>0.05</chemicalAddictionChance>
-		<backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
-		<backstoryFiltersOverride>
-			<li>
-				<categories>
-					<li>Outlander</li>
-				</categories>
-			</li>
-		</backstoryFiltersOverride>
-		<invNutrition>2.55</invNutrition>
-		<apparelTags>
-			<li>IndustrialBasic</li>
-			<li>IndustrialAdvanced</li>
-		</apparelTags>
-		<inventoryOptions>
-			<skipChance>0.70</skipChance>
-			<subOptionsChooseOne>
-				<li>
-					<choiceChance>90</choiceChance>
-					<thingDef>Silver</thingDef>
-					<countRange>
-						<min>30</min>
-						<max>100</max>
-					</countRange>
-				</li>
-			</subOptionsChooseOne>
-		</inventoryOptions>
-	</PawnKindDef>
-
-	<PawnKindDef ParentName="Forge_ForgelingsOutlanderBase">
-		<defName>Forge_Forgeling_Villager</defName>
-		<label>Forgeling villager</label>
-		<initialWillRange>3~7</initialWillRange>
-		<initialResistanceRange>15~23</initialResistanceRange>
-		<combatPower>35</combatPower>
-		<itemQuality>Poor</itemQuality>
-		<isFighter>false</isFighter>
-		<gearHealthRange>
-			<min>0.2</min>
-			<max>2.0</max>
-		</gearHealthRange>
-		<weaponTags>
-			<li>MedievalMeleeBasic</li>
-		</weaponTags>
-		<weaponMoney>
-			<min>65</min>
-			<max>250</max>
-		</weaponMoney>
-		<apparelMoney>
-			<min>200</min>
-			<max>400</max>
-		</apparelMoney>
-		<apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
-		<techHediffsChance>0.06</techHediffsChance>
-		<techHediffsMoney>
-			<min>50</min>
-			<max>600</max>
-		</techHediffsMoney>
-		<techHediffsTags>
-			<li>Poor</li>
-			<li>Simple</li>
-		</techHediffsTags>
-	</PawnKindDef>
-
-
+  <!-- PawnKinds for Player Colonies and Tribes -->
+  <PawnKindDef Abstract="True" Name="Forge_ForgelingsPlayerBase">
+    <race>Forge_Forgeling_Race</race>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <combatPower>30</combatPower>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+  </PawnKindDef>
+  <!-- Space Refugee for refugee events -->
+  <PawnKindDef>
+    <race>Forge_Forgeling_Race</race>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <combatPower>30</combatPower>
+    <defName>Forge_Forgeling_SpaceRefugee</defName>
+    <label>Forgeling space refugee</label>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <isFighter>false</isFighter>
+    <chemicalAddictionChance>0.08</chemicalAddictionChance>
+    <gearHealthRange>
+      <min>0.4</min>
+      <max>1.4</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>0</min>
+      <max>1000</max>
+    </apparelMoney>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>800</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+      <li>Simple</li>
+    </techHediffsTags>
+    <techHediffsChance>0.08</techHediffsChance>
+  </PawnKindDef>
+  <!-- Slave -->
+  <PawnKindDef>
+    <defName>Forge_Forgeling_Slave</defName>
+    <label>Forgeling slave</label>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <combatPower>30</combatPower>
+    <race>Forge_Forgeling_Race</race>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <itemQuality>Poor</itemQuality>
+    <backstoryCryptosleepCommonality>0.10</backstoryCryptosleepCommonality>
+    <isFighter>false</isFighter>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>0.8</max>
+    </gearHealthRange>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>0</min>
+      <max>350</max>
+    </apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <techHediffsChance>0.03</techHediffsChance>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>800</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <invNutrition>1</invNutrition>
+    <invFoodDef>Pemmican</invFoodDef>
+  </PawnKindDef>
+  <!-- Colonist -->
+  <PawnKindDef ParentName="Forge_ForgelingsPlayerBase">
+    <defName>Forge_Forgeling_Colonist</defName>
+    <label>Forgeling</label>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <defaultFactionType>PlayerColony</defaultFactionType>
+    <chemicalAddictionChance>0.06</chemicalAddictionChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <apparelMoney>
+      <min>350</min>
+      <max>600</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+    <techHediffsChance>0.03</techHediffsChance>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>800</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+      <li>Simple</li>
+    </techHediffsTags>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Forge_ForgelingsPlayerBase">
+    <defName>Forge_Forgeling_Tribesperson</defName>
+    <label>Forgeling</label>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <defaultFactionType>PlayerTribe</defaultFactionType>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <apparelTags>
+      <li>Neolithic</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>200</min>
+      <max>200</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>50</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.02</techHediffsChance>
+  </PawnKindDef>
+  <!-- Outlander -->
+  <PawnKindDef Name="Forge_ForgelingsOutlanderBase" Abstract="True">
+    <race>Forge_Forgeling_Race</race>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
+    <backstoryFiltersOverride>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+      </li>
+    </backstoryFiltersOverride>
+    <invNutrition>2.55</invNutrition>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>IndustrialAdvanced</li>
+    </apparelTags>
+    <inventoryOptions>
+      <skipChance>0.70</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <choiceChance>90</choiceChance>
+          <thingDef>Silver</thingDef>
+          <countRange>
+            <min>30</min>
+            <max>100</max>
+          </countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+  </PawnKindDef>
+  <PawnKindDef ParentName="Forge_ForgelingsOutlanderBase">
+    <defName>Forge_Forgeling_Villager</defName>
+    <label>Forgeling villager</label>
+    <initialWillRange>3~7</initialWillRange>
+    <initialResistanceRange>15~23</initialResistanceRange>
+    <combatPower>35</combatPower>
+    <itemQuality>Poor</itemQuality>
+    <isFighter>false</isFighter>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>2.0</max>
+    </gearHealthRange>
+    <weaponTags>
+      <li>MedievalMeleeBasic</li>
+    </weaponTags>
+    <weaponMoney>
+      <min>65</min>
+      <max>250</max>
+    </weaponMoney>
+    <apparelMoney>
+      <min>200</min>
+      <max>400</max>
+    </apparelMoney>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <techHediffsChance>0.06</techHediffsChance>
+    <techHediffsMoney>
+      <min>50</min>
+      <max>600</max>
+    </techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+      <li>Simple</li>
+    </techHediffsTags>
+  </PawnKindDef>
 </Defs>
