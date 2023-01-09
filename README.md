@@ -64,8 +64,6 @@ Highly recommend not to use Ideology which changes diet such as being a cannibal
 **Code:** C# - Taranchuk
 **Art:** Ogam 
 
-https://discord.gg/fGejcxbSY5]![Image](https://i.imgur.com/ABiEe4Z.png)
-
 https://discord.gg/7befJWr9xS]![Image](https://i.imgur.com/cfoFEMA.png)
 
 	
@@ -81,3 +79,4 @@ https://discord.gg/7befJWr9xS]![Image](https://i.imgur.com/cfoFEMA.png)
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2903634042]Last updated 2023-01-09
