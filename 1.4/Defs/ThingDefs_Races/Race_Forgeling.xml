@@ -280,8 +280,8 @@
           <li MayRequire="Ludeon.RimWorld.Biotech">FacialRidges</li>
         </blackGeneList>
         <blackGeneTags>
-          <li>SkinColor</li>
-          <li>HairColor</li>
+          <!-- <li>SkinColor</li> -->
+          <!-- <li>HairColor</li> -->
           <li>EyeColor</li>
           <li>BodyType</li>
           <li>Ears</li>
@@ -296,8 +296,8 @@
           <li>Tail</li>
         </blackGeneTags>
         <blackEndoCategories>
-          <li>Melanin</li>
-          <li>HairColor</li>
+          <!-- <li>Melanin</li> -->
+          <!-- <li>HairColor</li> -->
           <li>Ears</li>
           <li>Nose</li>
           <li>Jaw</li>
