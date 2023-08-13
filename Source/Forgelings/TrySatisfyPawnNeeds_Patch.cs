@@ -18,7 +18,7 @@ public static class TrySatisfyPawnNeeds_Patch
             return true;
         }
 
-        if (pawn.Dead)
+        if (pawn.Dead || !pawn.Spawned)
         {
             return false;
         }

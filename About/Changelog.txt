@@ -1,5 +1,8 @@
 # Changelog for ForgelingsRace
 
+1.4.4 - Fixed silly overwrite of a vanilla thinktree
+
+
 1.4.3 - Should no longer spawn with invisible bodies
 
 

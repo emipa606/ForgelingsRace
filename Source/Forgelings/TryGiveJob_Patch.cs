@@ -12,7 +12,13 @@ public static class TryGiveJob_Patch
     public static bool Prefix(Pawn pawn, ref Job __result, HungerCategory ___minCategory,
         float ___maxLevelPercentage, bool ___forceScanWholeMap, out Dictionary<ThingDef, OverridenValues> __state)
     {
-        if (pawn?.def == FDefOf.Forge_Forgeling_Race)
+        if (pawn is not { Spawned: true })
+        {
+            __state = null;
+            return true;
+        }
+
+        if (pawn.def == FDefOf.Forge_Forgeling_Race)
         {
             __result = TryGiveJob(pawn, ___minCategory, ___maxLevelPercentage, ___forceScanWholeMap);
             __state = Utils.AlterStats();
@@ -37,6 +43,11 @@ public static class TryGiveJob_Patch
     public static Job TryGiveJob(Pawn pawn, HungerCategory minCategory, float maxLevelPercentage,
         bool forceScanWholeMap)
     {
+        if (pawn is not { Spawned: true })
+        {
+            return null;
+        }
+
         var food = pawn.needs.food;
         if (food == null || (int)food.CurCategory < (int)minCategory || food.CurLevelPercentage > maxLevelPercentage)
         {
@@ -45,7 +56,7 @@ public static class TryGiveJob_Patch
 
         var desperate = pawn.needs.food.CurCategory == HungerCategory.Starving;
         if (!FoodUtility.TryFindBestFoodSourceFor_NewTemp(pawn, pawn, desperate, out var foodSource, out var foodDef,
-                true, true, allowForbidden: false, canUsePackAnimalInventory: false, allowSociallyImproper: false,
+                allowForbidden: false, canUsePackAnimalInventory: false, allowSociallyImproper: false,
                 allowCorpse: pawn.IsWildMan(), forceScanWholeMap: forceScanWholeMap))
         {
             return null;

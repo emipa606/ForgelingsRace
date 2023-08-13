@@ -11,7 +11,13 @@ public static class WillIngestStackCountOf_Patch
     public static void Prefix(Pawn ingester, ThingDef def, ref float singleFoodNutrition,
         out Dictionary<ThingDef, OverridenValues> __state)
     {
-        if (ingester?.def == FDefOf.Forge_Forgeling_Race)
+        if (ingester is not { Spawned: true })
+        {
+            __state = null;
+            return;
+        }
+
+        if (ingester.def == FDefOf.Forge_Forgeling_Race)
         {
             __state = Utils.AlterStats();
             singleFoodNutrition = def.GetStatValueAbstract(StatDefOf.Nutrition);

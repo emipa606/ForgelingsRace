@@ -10,6 +10,11 @@ public static class WillEat_Patch2
 {
     private static void Postfix(ref bool __result, Pawn p, ThingDef food)
     {
+        if (p is not { Spawned: true })
+        {
+            return;
+        }
+
         if (Utils.FoodEdibleForgeling.ContainsKey(food) && p.def != FDefOf.Forge_Forgeling_Race)
         {
             __result = false;

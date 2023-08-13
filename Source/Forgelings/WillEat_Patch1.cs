@@ -10,7 +10,12 @@ public static class WillEat_Patch1
 {
     private static void Postfix(ref bool __result, Pawn p, Thing food)
     {
-        if (food?.def == null || p == null)
+        if (p is not { Spawned: true })
+        {
+            return;
+        }
+
+        if (food?.def == null)
         {
             return;
         }

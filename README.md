@@ -79,4 +79,4 @@ https://discord.gg/7befJWr9xS]![Image](https://i.imgur.com/cfoFEMA.png)
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2903634042]Last updated 2023-02-24
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2903634042]Last updated 2023-08-13
