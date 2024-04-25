@@ -1,5 +1,8 @@
 # Changelog for ForgelingsRace
 
+1.4.5 - Last update, added end-of-life message
+
+
 1.4.4 - Fixed silly overwrite of a vanilla thinktree
 
 
